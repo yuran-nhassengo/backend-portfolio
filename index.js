@@ -8,12 +8,19 @@ const connectDB = require("./connect/database")
 const port =process.env.PORT;
 
 
+
+
 connectDB();
+
+app.use(express.json());
+
+app.use(express.urlencoded({extended: false}));
+app.use(cors());
 
 
 
 app.listen(port, ()=>{
-    console.log(`Servidor Connectado.... ${port}`);
+    console.log(`Listening on http://localhost:${port}`);
 });
 
 
